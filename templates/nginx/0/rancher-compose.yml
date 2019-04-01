@@ -12,6 +12,12 @@ catalog:
       required: true
       default: "8080" 
       type: "int"
+    - variable: ssh_port
+      description: "ssh port to access gogs cli"
+      label: "SSH Port"
+      required: true
+      default: "2222" 
+      type: "int"    
     - variable: "volume_driver"
       description: "Volume driver to associate with this service"
       label: "Volume Driver"
@@ -71,10 +77,12 @@ services:
       - priority: 1
         protocol: http
         service: nginx
+        source_port: ${http_port}
         target_port: 3000
       - priority: 2
         protocol: tcp
         service: nginx
+        source_port: ${ssh_port}
         target_port: 22
     health_check:
       response_timeout: 2000
