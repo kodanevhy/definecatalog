@@ -1,7 +1,9 @@
 version: '2'
 services:
-  nginx:
-    image: nginx:latest
+  gogs:
+    image: gogs/gogs:0.11.34
+    volumes:
+      - gogs-data:/data
 {{- if ne .Values.db_link ""}}
     external_links:
       - ${db_link}:db
@@ -16,10 +18,17 @@ services:
       MYSQL_PASSWORD: ${mysql_password}
       MYSQL_DATABASE: ${mysql_db}
     volumes:
-      - /var/lib/catalog/nginx/nginx-db:/var/lib/mysql
+      - gogs-db:/var/lib/mysql
 {{- end}}
   lb:
     image: rancher/lb-service-haproxy:v0.7.9
     ports:
     - ${http_port}:${http_port}/tcp
     - ${ssh_port}:${ssh_port}/tcp
+volumes:
+  gogs-data:
+    driver: ${volume_driver}
+{{- if eq .Values.db_link ""}}
+  gogs-db:
+    driver: ${volume_driver}
+{{- end}}
