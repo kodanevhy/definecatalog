@@ -16,8 +16,8 @@ services:
     external_links:
       - ${db_link}:db
 {{- else}}
-    links:
-      - db:db
+    depends_on:
+      - db
     ports:
       - "9999:80"
     restart: always
