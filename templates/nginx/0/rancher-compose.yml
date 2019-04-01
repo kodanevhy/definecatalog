@@ -1,13 +1,13 @@
 version: '2'
 catalog:
-  name: "nginx"
-  version: "1.0.0"
-  description: "nginx image"
-  uuid: #
-  minimum_rancher_version: #
+  name: "Gogs"
+  version: "v0.11.34"
+  description: "A painless self-hosted Git service"
+  uuid: gogs-0
+  minimum_rancher_version: v0.51.0
   questions:
     - variable: http_port
-      description: "http port to access gogs wubui"
+      description: "http port to access gogs webui"
       label: "Http Port"
       required: true
       default: "8080" 
@@ -16,8 +16,8 @@ catalog:
       description: "ssh port to access gogs cli"
       label: "SSH Port"
       required: true
-      default: "2222" 
-      type: "int"    
+      default: "2222"
+      type: "int"
     - variable: "volume_driver"
       description: "Volume driver to associate with this service"
       label: "Volume Driver"
@@ -40,13 +40,13 @@ catalog:
       description: "mysql db"
       label: "Mysql db"
       required: true
-      default: "nginx"
+      default: "gogs"
       type: "string"
     - variable: mysql_user
       description: "mysql user"
       label: "Mysql User"
       required: true
-      default: "nginx"
+      default: "gogs"
       type: "string"
     - variable: mysql_password
       description: "mysql root password"
@@ -55,7 +55,7 @@ catalog:
       default: "default_pass"
       type: "password"
 services:
-  nginx:
+  gogs:
     scale: 1
     retain_ip: true
     health_check:
@@ -76,12 +76,12 @@ services:
       port_rules:
       - priority: 1
         protocol: http
-        service: nginx
+        service: gogs
         source_port: ${http_port}
         target_port: 3000
       - priority: 2
         protocol: tcp
-        service: nginx
+        service: gogs
         source_port: ${ssh_port}
         target_port: 22
     health_check:
