@@ -1,6 +1,6 @@
 name:  nginx
 description: |
-   mygogs
+   nginxweb
 version:  1.0.0
 category:  WEB
 maintainer:  yormng
