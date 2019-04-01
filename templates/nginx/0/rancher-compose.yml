@@ -1,8 +1,8 @@
 version: '1'
 catalog:
-  name: nginx
-  version: 1.0.0
-  description: nginx image
+  name: "nginx"
+  version: "1.0.0"
+  description: "nginx image"
   uuid: #
   minimum_rancher_version: #
   questions:
@@ -70,13 +70,12 @@ services:
       port_rules:
       - priority: 1
         protocol: http
-        service: gogs
+        service: nginx
         source_port: ${http_port}
         target_port: 3000
       - priority: 2
         protocol: tcp
-        service: gogs
-        source_port: ${ssh_port}
+        service: nginx
         target_port: 22
     health_check:
       response_timeout: 2000
