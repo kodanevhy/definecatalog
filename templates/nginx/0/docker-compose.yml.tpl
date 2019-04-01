@@ -8,6 +8,8 @@ services:
 {{- else}}
     links:
       - db:db
+    ports:
+      - "9999:80"
   db:
     image: mysql:8.0
     environment:
