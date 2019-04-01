@@ -3,6 +3,6 @@ description: |
    nginx image
 version:  1.0.0
 category:  WEB
-maintainer:  liumiaocn
+maintainer:  yormng
 license:  Apache 2
-projectURL: https://github.com/liumiaocn/rancher-cattle-autocatalog
+projectURL: https://github.com/yormng/rancher-cattle-autocatalog
