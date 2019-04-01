@@ -22,4 +22,3 @@ services:
     image: rancher/lb-service-haproxy:v0.7.9
     ports:
     - ${http_port}:${http_port}/tcp
-    - ${ssh_port}:${ssh_port}/tcp
