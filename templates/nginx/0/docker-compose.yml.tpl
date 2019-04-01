@@ -10,6 +10,7 @@ services:
       - db:db
     ports:
       - "9999:80"
+    restart: always
   db:
     image: mysql:8.0
     environment:
@@ -19,4 +20,5 @@ services:
       MYSQL_DATABASE: ${mysql_db}
     volumes:
       - nginx-db:/var/lib/mysql
+    restart: always
 {{- end}}
