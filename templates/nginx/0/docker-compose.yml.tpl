@@ -21,3 +21,4 @@ services:
     ports:
       - "9999:80"
     restart: always
+{{- end}}
