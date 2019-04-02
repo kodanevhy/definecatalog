@@ -3,7 +3,6 @@ catalog:
   name: "nginx"
   version: "v0.0.1"
   description: "A web service."
-  uuid: gogs-0
   minimum_rancher_version: v0.51.0
   questions:
     - variable: http_port
