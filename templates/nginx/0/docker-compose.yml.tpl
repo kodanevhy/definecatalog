@@ -10,7 +10,6 @@ services:
       - db:db
     ports:
     - ${http_port}:80
-    restart: always
   db:
     image: mysql:8.0
     environment:
