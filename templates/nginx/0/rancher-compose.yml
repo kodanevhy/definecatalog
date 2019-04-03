@@ -45,7 +45,7 @@ catalog:
       description: "mysql root password"
       label: "Mysql Password"
       required: true
-      default: "000000"
+      default: "default_pass"
       type: "password"
 services:
   nginx:
