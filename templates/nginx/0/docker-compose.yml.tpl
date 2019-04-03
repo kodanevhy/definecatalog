@@ -20,3 +20,10 @@ services:
     volumes:
       - nginx-db:/var/lib/mysql
 {{- end}}
+volumes:
+  nginx-data:
+    driver: ${volume_driver}
+{{- if eq .Values.db_link ""}}
+  nginx-db:
+    driver: ${volume_driver}
+{{- end}}
