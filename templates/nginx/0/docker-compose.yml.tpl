@@ -19,5 +19,4 @@ services:
       MYSQL_DATABASE: ${mysql_db}
     volumes:
       - nginx-db:/var/lib/mysql
-    restart: always
 {{- end}}
